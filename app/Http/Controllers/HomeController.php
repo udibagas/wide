@@ -38,6 +38,7 @@ class HomeController extends Controller
             'total' => Transaction::sum('price'),
 
             'transactionByMonth' => Transaction::selectRaw('SUM(price) as total, MONTH(time) AS month')
+                ->whereYear('time', date('Y'))
                 ->groupByRaw('MONTH(time)')
                 ->orderByRaw('MONTH(time) ASC')
                 ->get()->map(function ($item) {
@@ -48,6 +49,8 @@ class HomeController extends Controller
                 }),
 
             'transactionByDate' => Transaction::selectRaw('SUM(price) as total, DATE(time) AS date')
+                ->whereYear('time', date('Y'))
+                ->whereMonth('time', date('m'))
                 ->groupByRaw('DATE(time)')
                 ->orderByRaw('DATE(time) ASC')
                 ->get()->map(function ($item) {
