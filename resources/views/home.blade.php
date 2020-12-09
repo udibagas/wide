@@ -33,7 +33,7 @@
 
     <div class="row">
         <div class="col-md-6">
-            <div class="card">
+            <div class="card mb-3">
                 <div class="card-header"> Transaction By Month </div>
                 <table class="table table-striped">
                     <thead>
