@@ -39,6 +39,7 @@
                     <thead>
                         <tr>
                             <th>Month</th>
+                            <th class="text-center">Qty</th>
                             <th class="text-right">Total</th>
                         </tr>
                     </thead>
@@ -46,6 +47,7 @@
                         @foreach ($transactionByMonth as $t)
                         <tr>
                             <td>{{$t['month']}}</td>
+                            <td class="text-center">{{$t['qty']}}</td>
                             <td class="text-right">{{number_format($t['total'])}}</td>
                         </tr>
                         @endforeach
@@ -61,6 +63,7 @@
                     <thead>
                         <tr>
                             <th>Date</th>
+                            <th class="text-center">Qty</th>
                             <th class="text-right">Total</th>
                         </tr>
                     </thead>
@@ -68,6 +71,7 @@
                         @foreach ($transactionByDate as $t)
                         <tr>
                             <td>{{$t['date']}}</td>
+                            <td class="text-center">{{$t['qty']}}</td>
                             <td class="text-right">{{number_format($t['total'])}}</td>
                         </tr>
                         @endforeach
