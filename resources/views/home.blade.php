@@ -46,7 +46,9 @@
                     <tbody>
                         @foreach ($transactionByMonth as $t)
                         <tr>
-                            <td>{{$t['month']}}</td>
+                            <td>
+                                <a href="/transaction?month={{$t['m']}}">{{$t['month']}}</a>
+                            </td>
                             <td class="text-center">{{$t['qty']}}</td>
                             <td class="text-right">{{number_format($t['total'])}}</td>
                         </tr>
@@ -70,7 +72,11 @@
                     <tbody>
                         @foreach ($transactionByDate as $t)
                         <tr>
-                            <td>{{$t['date']}}</td>
+                            <td>
+                                <a href="/transaction?date={{$t['date']}}">
+                                    {{date('d-M-Y', strtotime($t['date']))}}
+                                </a>
+                            </td>
                             <td class="text-center">{{$t['qty']}}</td>
                             <td class="text-right">{{number_format($t['total'])}}</td>
                         </tr>

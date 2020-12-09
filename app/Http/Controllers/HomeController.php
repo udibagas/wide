@@ -44,6 +44,7 @@ class HomeController extends Controller
                 ->get()->map(function ($item) {
                     return [
                         'month' => date('F', strtotime(date("Y-{$item->month}-d"))),
+                        'm' => $item->month,
                         'qty' => $item->qty,
                         'total' => $item->total
                     ];
@@ -56,7 +57,7 @@ class HomeController extends Controller
                 ->orderByRaw('DATE(time) ASC')
                 ->get()->map(function ($item) {
                     return [
-                        'date' => date('d-M-Y', strtotime($item->date)),
+                        'date' => date('Y-m-d', strtotime($item->date)),
                         'qty' => $item->qty,
                         'total' => $item->total
                     ];
