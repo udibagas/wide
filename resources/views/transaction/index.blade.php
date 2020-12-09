@@ -23,23 +23,23 @@
     <div class="card">
         @if ($date)
         <div class="card-header">{{date('d-M-Y', strtotime($date))}}</div>
-        <table class="table table-striped">
+        <table class="table table-sm table-striped">
             <thead>
                 <tr>
                     <th>Time</th>
                     <th>Code</th>
-                    <th>Profile</th>
-                    <th>Validity</th>
+                    <th class="text-center">Profile</th>
                     <th class="text-right">Price</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($transactions as $t)
                 <tr>
-                    <td>{{date('d-M-Y H:i:s', strtotime($t->time))}}</td>
+                    <td>{{date('H:i', strtotime($t->time))}}</td>
                     <td>{{$t->code}}</td>
-                    <td>{{$t->profile}}</td>
-                    <td>{{$t->validity}}</td>
+                    <td class="text-center">
+                        {{$t->validity}} - {{$t->profile}}
+                    </td>
                     <td class="text-right">{{number_format($t->price)}}</td>
                 </tr>
                 @endforeach
