@@ -78,13 +78,13 @@ class Trx extends Command
             ];
         });
 
-        DB::transaction(function () use ($data) {
+        DB::transaction(function () use ($data, $router) {
             foreach ($data as $d) {
                 Transaction::updateOrCreate([
+                    'router_id' => $router->id,
                     'code' => $d['code'],
                     'price' => $d['price'],
                     'profile' => $d['profile'],
-                    'comment' => $d['comment'],
                 ], $d);
             }
         });
