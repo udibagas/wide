@@ -17,7 +17,7 @@ class Trx extends Command
      *
      * @var string
      */
-    protected $signature = 'trx:get {owner?}';
+    protected $signature = 'trx:get {source?}';
 
     /**
      * The console command description.
@@ -58,8 +58,8 @@ class Trx extends Command
             'pass' => $router->pass
         ]);
 
-        $owner = $this->argument('owner') ?: strtolower(date('M')) . date('Y');
-        $query = (new Query('/system/script/print'))->where('owner', $owner);
+        $source = $this->argument('source') ?: strtolower(date('M')) . date('/d/Y');
+        $query = (new Query('/system/script/print'))->where('source', $source);
         $response = $client->query($query)->read();
 
         $data = collect($response)->map(function ($item) use ($router) {
