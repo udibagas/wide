@@ -78,16 +78,15 @@ class VoucherController extends Controller
 
     public function generate(Request $request)
     {
-        // http://dashboard.wide.co.id/api/generate?qty=10&p&uptime=1h&validity=1hari&price=12000
+        // http://dashboard.wide.co.id/api/voucher/generate?qty=10&uptime=1jam&validity=1hari&price=10000&site=WIDE5&dns=wide.kalbar
 
-        $request->validate([
-            'site' => 'required',
-            'dns' => 'required',
-            'validity' => 'required',
-            'price' => 'required',
-            'comment' => 'required',
-            'uptime' => 'required'
-        ]);
+        // $request->validate([
+        //     'site' => 'required',
+        //     'dns' => 'required',
+        //     'validity' => 'required',
+        //     'price' => 'required',
+        //     'uptime' => 'required'
+        // ]);
 
         $vouchers = [];
 
