@@ -94,7 +94,7 @@ class VoucherController extends Controller
             $vouchers[] = strtolower(Str::random(8));
         }
 
-        Voucher::insert(array_map(function ($voucher) use ($request, $comment) {
+        Voucher::insert(array_map(function ($voucher) use ($request) {
             return [
                 'site'      => $request->site,
                 'dns'       => $request->dns,
