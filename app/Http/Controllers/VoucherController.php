@@ -78,7 +78,7 @@ class VoucherController extends Controller
 
     public function generate(Request $request)
     {
-        // http://dashboard.wide.co.id/api/voucher/generate?qty=10&uptime=1jam&validity=1hari&price=10000&site=WIDE5&dns=wide.kalbar
+        // tool fetch url=http://dashboard.wide.co.id/api/voucher/generate?qty=10&uptime=1jam&validity=1hari&price=10000&site=WIDE5&dns=wide.kalbar&comment=vc-150.03.30.21-topup5 dst-path=voucher.txt; :for code in [:toarray [file get voucher.txt contents]] do={ ip hotspot user add user name=$code password=$code profile=1jam limit-uptime=1h comment=vc-150.03.30.21-topup5 }
 
         // $request->validate([
         //     'site' => 'required',
@@ -104,7 +104,7 @@ class VoucherController extends Controller
                 'validity'  => $request->validity,
                 'price'     => $request->price,
                 'code'      => $voucher,
-                'comment'   => $comment
+                'comment'   => $request->comment
             ];
         }, $vouchers));
 
