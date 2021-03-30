@@ -46,7 +46,11 @@ class Trx extends Command
         $routers = Router::all();
 
         foreach ($routers as $router) {
-            $this->getData($router);
+            try {
+                $this->getData($router);
+            } catch (\Exception $e) {
+                continue;
+            }
         }
     }
 
@@ -61,9 +65,6 @@ class Trx extends Command
         $source = $this->argument('source') ?: strtolower(date('M')) . date('/d/Y');
         $query = (new Query('/system/script/print'))->where('source', $source);
         $response = $client->query($query)->read();
-
-        print_r($response);
-        return;
 
         $data = collect($response)->map(function ($item) use ($router) {
             $name = explode('-|-', $item['name']);
