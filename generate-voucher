@@ -1,0 +1,40 @@
+:global qty 100;
+:global profile paket-1jam;
+:global uptime 1h;
+
+:for i from=1 to=$qty step=1 do={ /tool fetch url=http://dashboard.wide.co.id/api/voucher dst-path=voucher.txt; :local code [/file get voucher.txt contents]; /ip hotspot user add profile=$profile limit-uptime=$uptime name=$code password=$code comment=vc-1055.03.29.21-2jam-30pcs; };
+
+/ip hotspot user print file=voucher.txt where comment=vc-1055.03.29.21-2jam-30pcs;
+/tool e-mail send to=udibagas@wide.co.id subject=voucher body=voucher file=voucher.txt;
+
+/tool e-mail send to=udibagas@wide.co.id subject=voucher body=[/ip hotspot user print as-value]
+
+
+/tool fetch url=http://dashboard.wide.co.id/api/voucher?qty=100 file=voucher.txt
+
+:global content [/file get [/file find name=voucher.txt] contents];
+:global contentLen [ :len $content ];
+
+:global lineEnd 0;
+:global line "";
+:global lastEnd 0;
+
+
+:do {
+    :set lineEnd [:find $content "\r\n" $lastEnd ];
+    :set line [:pick $content $lastEnd $lineEnd];
+    :set lastEnd ( $lineEnd + 2 );
+
+    :local tmpArray [:toarray $line];
+    :if ( [:pick $tmpArray 0] != "" ) do={
+        :put $tmpArray;
+        /ip hotspot user add \
+            name=[:pick $tmpArray 0] \
+            password=[:pick $tmpArray 0] \
+            profile=[:pick $tmpArray 1] \
+            limit-uptime=1h \
+            comment=[:pick $tmpArray 3]
+    }
+} while ($lineEnd < $contentLen);
+
+/file remove [ find name=voucher.txt ];

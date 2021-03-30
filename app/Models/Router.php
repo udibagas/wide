@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Router extends Model
 {
     use HasFactory;
+
+    public function hotspots()
+    {
+        return $this->hasMany(Hotspot::class);
+    }
 }

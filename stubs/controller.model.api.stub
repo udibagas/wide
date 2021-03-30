@@ -1,0 +1,75 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ namespacedModel }};
+use {{ rootNamespace }}Http\Controllers\Controller;
+use {{ rootNamespace }}Http\Requests\{{model}}Request;
+use Illuminate\Http\Request;
+
+class {{ class }} extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        return {{model}}::when($request->keyword, function($q) use ($request) {
+            $q->where(function($q) use ($request) {
+                $q->where('field', 'like', "%{$request->keyword}%")
+                    ->orWHere('field', 'like', "%{$request->keyword}%");
+            });
+        })->orderBy($request->sort_field ?: 'name', $request->sort_direction ?: 'asc')
+            ->paginate($request->per_page);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store({{model}}Request $request)
+    {
+        $data = {{model}}::create($request->all());
+        return ['message' => 'Data has been saved'];
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
+     * @return \Illuminate\Http\Response
+     */
+    public function show({{ model }} ${{ modelVariable }})
+    {
+        return ${{modelVariable}};
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
+     * @return \Illuminate\Http\Response
+     */
+    public function update({{model}}Request $request, {{ model }} ${{ modelVariable }})
+    {
+        ${{modelVariable}}->update($request->all());
+        return ['message' => 'Data has been saved'];
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy({{ model }} ${{ modelVariable }})
+    {
+        ${{modelVariable}}->delete();
+        return ['message' => 'Data has been deleted'];
+    }
+}

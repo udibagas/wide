@@ -62,6 +62,9 @@ class Trx extends Command
         $query = (new Query('/system/script/print'))->where('source', $source);
         $response = $client->query($query)->read();
 
+        print_r($response);
+        return;
+
         $data = collect($response)->map(function ($item) use ($router) {
             $name = explode('-|-', $item['name']);
             return [
