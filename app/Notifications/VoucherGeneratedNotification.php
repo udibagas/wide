@@ -13,7 +13,6 @@ class VoucherGeneratedNotification extends Notification implements ShouldQueue
 
     public $comment;
 
-
     /**
      * Create a new notification instance.
      *
@@ -21,7 +20,7 @@ class VoucherGeneratedNotification extends Notification implements ShouldQueue
      */
     public function __construct($comment)
     {
-        $this->comment = $comment;
+        $this->comment  = $comment;
     }
 
     /**
@@ -44,13 +43,14 @@ class VoucherGeneratedNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         $mail = (new MailMessage)
-            ->subject("WiDe - Voucher siap di download")
+            ->subject("WiDe - Voucher {$this->comment} siap diunduh")
             ->greeting("Hi!")
             ->line('Vouchermu sudah siap diunduh.')
             ->action('Klik di sini untuk mengunduh vouchermu', url('/voucher/print/?comment=' . $this->comment))
             ->line('Terimakasih!');
 
-        $mail->cc('didik@wide.co.id');
+        $mail->cc('udibagas@wide.co.id');
+        $mail->cc('voucher@wide.co.id');
 
         return $mail;
     }

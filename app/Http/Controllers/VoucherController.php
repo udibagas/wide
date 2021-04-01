@@ -78,20 +78,10 @@ class VoucherController extends Controller
 
     public function generate(Request $request)
     {
-        // tool fetch url="http://dashboard.wide.co.id/api/voucher/generate\?qty=10&uptime=1jam&validity=1hari&price=10000&site=WIDE5&dns=wide.kalbar&comment=vc-150.03.30.21-topup5" dst-path=voucher.txt; :foreach code in=[:toarray [file get voucher.txt contents]] do={ ip hotspot user add name=$code password=$code profile=1jam limit-uptime=1h comment=vc-150.03.30.21-topup5; }
-
-        // $request->validate([
-        //     'site' => 'required',
-        //     'dns' => 'required',
-        //     'validity' => 'required',
-        //     'price' => 'required',
-        //     'uptime' => 'required'
-        // ]);
-
         $vouchers = [];
 
         for ($i = 1; $i <= $request->qty; $i++) {
-            $vouchers[] = strtolower(Str::random(8));
+            $vouchers[] = substr($request->profile, 0, 2) . rand(100, 999) . static::randomString();
         }
 
         Voucher::insert(array_map(function ($voucher) use ($request) {
@@ -102,14 +92,28 @@ class VoucherController extends Controller
                 'validity'  => $request->validity,
                 'price'     => $request->price,
                 'code'      => $voucher,
-                'comment'   => $request->comment
+                'comment'   => $request->comment,
+                'created_at' => now(),
+                'updated_at' => now()
             ];
         }, $vouchers));
 
-
-        Notification::route('mail', 'udibagas@wide.co.id')
+        // TODO: harusnya kirim email kalau sukses sudah tercreate
+        Notification::route('mail', $request->email ?: 'udibagas@wide.co.id')
             ->notify(new VoucherGeneratedNotification($request->comment));
 
         return implode(',', $vouchers);
+    }
+
+    public static function randomString($length = 3)
+    {
+        $string = 'abcdefghijkmnprstuvwxyz';
+        $ret = '';
+
+        for ($i = 1; $i <= $length; $i++) {
+            $ret = $string[rand(0, strlen($string) - 1)];
+        }
+
+        return $ret;
     }
 }
