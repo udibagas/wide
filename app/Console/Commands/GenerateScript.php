@@ -49,7 +49,7 @@ class GenerateScript extends Command
             'WIDE2-Siling' => ['email' => 'udibagas@wide.co.id'],
             'WIDE3-Sayan' => ['email' => 'udibagas@wide.co.id'],
             'WIDE4-Sayan2' => ['email' => 'udibagas@wide.co.id'],
-            'WIDE5-KM74' => ['email' => 'udibagas@wide.co.id'],
+            'WIDE5-KM74' => ['email' => 'almaapinoh@gmail.com'],
             'WIDE6-KM101' => ['email' => 'udibagas@wide.co.id'],
             'WIDE7-BinaKarya' => ['email' => 'udibagas@wide.co.id']
         ];
