@@ -111,7 +111,7 @@ class VoucherController extends Controller
         $ret = '';
 
         for ($i = 1; $i <= $length; $i++) {
-            $ret = $string[rand(0, strlen($string) - 1)];
+            $ret .= $string[rand(0, strlen($string) - 1)];
         }
 
         return $ret;
