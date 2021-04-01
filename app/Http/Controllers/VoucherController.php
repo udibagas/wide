@@ -81,7 +81,7 @@ class VoucherController extends Controller
         $vouchers = [];
 
         for ($i = 1; $i <= $request->qty; $i++) {
-            $vouchers[] = substr($request->profile, 0, 2) . rand(100, 999) . static::randomString();
+            $vouchers[] = substr($request->uptime, 0, 2) . rand(100, 999) . static::randomString();
         }
 
         Voucher::insert(array_map(function ($voucher) use ($request) {
