@@ -47,7 +47,7 @@ class VoucherGeneratedNotification extends Notification implements ShouldQueue
         $data = Voucher::where('comment', $this->comment)->get();
 
         $summary = "
-        <pre>
+            -------------------------------------------
             Site         : WIDE1-Pintas
             Profile      : {$data[0]->profile}
             Validity     : {$data[0]->validity}
@@ -55,7 +55,7 @@ class VoucherGeneratedNotification extends Notification implements ShouldQueue
             Price        : " . number_format($data[0]->price) . "
             Seller Price : " . number_format($data[0]->seller_price) . "
             Total        : " . number_format(count($data) * $data[0]->seller_price) . "
-        </pre>
+            -------------------------------------------
         ";
 
         $mail = (new MailMessage)
