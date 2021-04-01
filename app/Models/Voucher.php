@@ -12,10 +12,12 @@ class Voucher extends Model
     protected $fillable = [
         'site',
         'dns',
+        'profile',
         'uptime',
         'validity',
         'price',
+        'seller_price',
         'code',
-        'comment'
+        'comment',
     ];
 }
