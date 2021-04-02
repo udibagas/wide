@@ -48,7 +48,7 @@ class VoucherGeneratedNotification extends Notification implements ShouldQueue
 
         $summary = "
             -------------------------------------------
-            Site         : WIDE1-Pintas
+            Site         : {$data[0]->site}
             Profile      : {$data[0]->profile}
             Validity     : {$data[0]->validity}
             Qty          : " . count($data) . "
