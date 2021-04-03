@@ -52,10 +52,18 @@ class VoucherGeneratedNotification extends Notification implements ShouldQueue
             Profile      : {$data[0]->profile}
             Validity     : {$data[0]->validity}
             Qty          : " . count($data) . "
-            Price        : " . number_format($data[0]->price) . "
-            Seller Price : " . number_format($data[0]->seller_price) . "
-            Total        : " . number_format(count($data) * $data[0]->seller_price) . "
+            Price        : Rp " . number_format($data[0]->price) . "
+            Seller Price : Rp " . number_format($data[0]->seller_price) . "
+            Total        : Rp " . number_format(count($data) * $data[0]->seller_price) . "
             -------------------------------------------
+
+            Silakan transfer ke
+
+            Bank                : BRI
+            Atas Nama           : PT CATURDAYA MITRA MANDIRI
+            Nomor Rekening      : 1170 0100 0310 562
+            Jumlah              : Rp. " . number_format(count($data) * $data[0]->seller_price) . "
+            Konfirmasi via WA   : 0858 4890 9262 (Bagas)
         ";
 
         $mail = (new MailMessage)

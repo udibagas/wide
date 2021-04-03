@@ -103,9 +103,9 @@ class GenerateScript extends Command
                 'email' => 'udibagas@wide.co.id',
                 'profiles' => [
                     '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 8000, 'validity' => '1hari'],
-                    '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 12000, 'validity' => '1hari'],
-                    '3jam' => ['uptime' => '3h', 'price' => 20000, 'seller_price' => 15000, 'validity' => '1hari'],
-                    '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 22000, 'validity' => '2hari'],
+                    '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 11000, 'validity' => '1hari'],
+                    '3jam' => ['uptime' => '3h', 'price' => 20000, 'seller_price' => 16000, 'validity' => '1hari'],
+                    '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '2hari'],
                 ]
             ]
         ];
