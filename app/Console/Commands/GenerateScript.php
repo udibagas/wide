@@ -45,7 +45,7 @@ class GenerateScript extends Command
                     '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 12000, 'validity' => '1hari'],
                     // '3jam' => ['uptime' => '3h', 'price' => 20000, 'seller_price' => 15000, 'validity' => '1hari'],
                     '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '2hari'],
-                    '5jam' => ['uptime' => '30d', 'price' => 350000, 'seller_price' => 300000, 'validity' => '30hari'],
+                    '1bulan' => ['uptime' => '30d', 'price' => 350000, 'seller_price' => 300000, 'validity' => '30hari'],
                 ]
             ],
 
