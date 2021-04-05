@@ -16,8 +16,14 @@ class VoucherController extends Controller
 {
     public function print(Request $request)
     {
+        $vouchers = Voucher::where('comment', $request->comment)->get();
+        $site = $vouchers[0]->site;
+        $profile = $vouchers[0]->profile;
+        $qty = count($vouchers);
+
         return view('voucher.print', [
-            'vouchers' => Voucher::where('comment', $request->comment)->get()
+            'vouchers' => $vouchers,
+            'title' => "{$site}-{$profile}-{$qty}pcs-{$request->comment}"
         ]);
     }
 
@@ -100,11 +106,13 @@ class VoucherController extends Controller
             ];
         }, $vouchers));
 
-        // TODO: harusnya kirim email kalau sukses sudah tercreate
+        return implode(',', $vouchers);
+    }
+
+    public function notify(Request $request)
+    {
         Notification::route('mail', $request->email ?: 'udibagas@wide.co.id')
             ->notify(new VoucherGeneratedNotification($request->comment));
-
-        return implode(',', $vouchers);
     }
 
     public static function randomString($length = 3)

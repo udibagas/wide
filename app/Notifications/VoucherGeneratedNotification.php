@@ -75,7 +75,6 @@ class VoucherGeneratedNotification extends Notification implements ShouldQueue
             ->line('Terimakasih!');
 
         $mail->cc('udibagas@wide.co.id');
-        $mail->cc('voucher@wide.co.id');
         $mail->cc('arifin@cdmm.co.id');
         $mail->cc('ade.wijaya@cdmm.co.id');
         $mail->cc('tono.triwibowo@cdmm.co.id');
