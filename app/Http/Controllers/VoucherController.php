@@ -84,6 +84,9 @@ class VoucherController extends Controller
 
     public function generate(Request $request)
     {
+        // delete voucher dengan comment yang sama
+        Voucher::where('comment', $request->comment)->delete();
+
         $vouchers = [];
 
         for ($i = 1; $i <= $request->qty; $i++) {
