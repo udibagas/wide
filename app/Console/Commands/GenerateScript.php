@@ -140,6 +140,6 @@ class GenerateScript extends Command
             ]
         );
 
-        $this->line('tool fetch url="http://dashboard.wide.co.id/api/voucher/generate\?qty=' . $qty . '&uptime=' . $profile . '&validity=' . $validity . '&price=' . $price . '&seller_price=' . $seller_price . '&site=' . $site . '&dns=' . $dns . '&comment=' . $comment . '&email=' . $email . '" dst-path=voucher.txt; :foreach code in=[:toarray [file get voucher.txt contents]] do={ ip hotspot user add name=$code password=$code profile=' . $profile . ' limit-uptime=' . $uptime . ' comment=' . $comment . '; }; ip hotspot user print where comment=' . $comment . '; tool fetch url="http://dashboard.wide.co.id/api/voucher/notify\?email=' . $email . '&comment=' . $comment . '"');
+        $this->line('tool fetch url="http://dashboard.wide.co.id/api/voucher/generate\?qty=' . $qty . '&uptime=' . $profile . '&validity=' . $validity . '&price=' . $price . '&seller_price=' . $seller_price . '&site=' . $site . '&dns=' . $dns . '&comment=' . $comment . '&email=' . $email . '" dst-path=voucher.txt; :foreach code in=[:toarray [file get voucher.txt contents]] do={ ip hotspot user add name=$code password=$code profile=' . $profile . ' limit-uptime=' . $uptime . ' comment=' . $comment . '; }; ip hotspot user print count-only where comment=' . $comment . '; tool fetch url="http://dashboard.wide.co.id/api/voucher/notify\?email=' . $email . '&comment=' . $comment . '"');
     }
 }
