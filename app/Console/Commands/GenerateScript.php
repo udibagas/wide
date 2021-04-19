@@ -55,7 +55,7 @@ class GenerateScript extends Command
                     '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 8000, 'validity' => '1hari'],
                     '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 12000, 'validity' => '1hari'],
                     // '3jam' => ['uptime' => '3h', 'price' => 20000, 'seller_price' => 15000, 'validity' => '1hari'],
-                    '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 22000, 'validity' => '2hari'],
+                    '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '2hari'],
                 ]
             ],
 
@@ -73,11 +73,12 @@ class GenerateScript extends Command
                 'email' => 'udibagas@wide.co.id',
                 'profiles' => [
                     '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 8000, 'validity' => '1hari'],
-                    '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 12000, 'validity' => '1hari'],
+                    '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 11000, 'validity' => '1hari'],
                     '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '2hari'],
-                    'Wan-1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 7000, 'validity' => '1hari'],
-                    'Wan-2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 11000, 'validity' => '1hari'],
-                    'Wan-5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 19000, 'validity' => '2hari'],
+                    '1jam-wan' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 7000, 'validity' => '1hari'],
+                    '2jam-wan' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 11000, 'validity' => '1hari'],
+                    '5jam-wan' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 19000, 'validity' => '2hari'],
+                    '1bulan' => ['uptime' => '30d', 'price' => 350000, 'seller_price' => 300000, 'validity' => '30hari'],
                 ]
             ],
 
@@ -108,6 +109,7 @@ class GenerateScript extends Command
                     '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 11000, 'validity' => '1hari'],
                     '3jam' => ['uptime' => '3h', 'price' => 20000, 'seller_price' => 16000, 'validity' => '1hari'],
                     '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '2hari'],
+                    '1bulan' => ['uptime' => '30d', 'price' => 350000, 'seller_price' => 30000, 'validity' => '30hari'],
                 ]
             ]
         ];
