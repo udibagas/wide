@@ -59,7 +59,7 @@ class GenerateScript extends Command
                 ]
             ],
 
-            'WIDE3-Sayan' => [
+            'MajuJayaCoffe' => [
                 'email' => 'udibagas@wide.co.id',
                 'profiles' => [
                     '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 8000, 'validity' => '1hari'],
@@ -105,11 +105,20 @@ class GenerateScript extends Command
             'WIDE7-BinaKarya' => [
                 'email' => 'udibagas@wide.co.id',
                 'profiles' => [
-                    '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 8000, 'validity' => '1hari'],
+                    '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 7000, 'validity' => '1hari'],
                     '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 11000, 'validity' => '1hari'],
                     '3jam' => ['uptime' => '3h', 'price' => 20000, 'seller_price' => 16000, 'validity' => '1hari'],
                     '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '2hari'],
                     '1bulan' => ['uptime' => '30d', 'price' => 350000, 'seller_price' => 30000, 'validity' => '30hari'],
+                ]
+            ],
+            'WIDE8-KM69' => [
+                'email' => 'udibagas@wide.co.id',
+                'profiles' => [
+                    '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 6000, 'validity' => '1hari'],
+                    '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 10000, 'validity' => '1hari'],
+                    '3jam' => ['uptime' => '3h', 'price' => 20000, 'seller_price' => 13000, 'validity' => '1hari'],
+                    '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '2hari'],
                 ]
             ]
         ];
@@ -121,9 +130,16 @@ class GenerateScript extends Command
         $profile    = $this->choice('Profile', array_keys($sites[$site]['profiles']));
         $uptime     = $sites[$site]['profiles'][$profile]['uptime'];
         $validity   = $sites[$site]['profiles'][$profile]['validity'];
-        $qty        = $this->ask('Qty', 50);
         $price      = $this->ask('Price', $sites[$site]['profiles'][$profile]['price']);
         $seller_price = $this->ask('Seller Price', $sites[$site]['profiles'][$profile]['seller_price']);
+        $total      = $this->ask('Total', 0);
+        $qty        = 50;
+
+        if ($total > 0) {
+            $qty = ceil($total / $seller_price);
+        }
+
+        $qty        = $this->ask('Qty', $qty);
 
         $this->table(
             ['Parameter', 'Value'],
