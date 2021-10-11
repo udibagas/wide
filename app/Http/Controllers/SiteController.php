@@ -1,13 +1,12 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\Http\Controllers;
 
-use {{ namespacedModel }};
-use {{ rootNamespace }}Http\Controllers\Controller;
-use {{ rootNamespace }}Http\Requests\{{model}}Request;
+use App\Http\Requests\SiteRequest;
+use App\Models\Site;
 use Illuminate\Http\Request;
 
-class {{ class }} extends Controller
+class SiteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,11 @@ class {{ class }} extends Controller
      */
     public function index(Request $request)
     {
-        $data = {{model}}::when($request->keyword, function($q) use ($request) {
-            $q->where(function($q) use ($request) {
-                $q->where('field', 'like', "%{$request->keyword}%")
-                    ->orWHere('field', 'like', "%{$request->keyword}%");
+        $data = Site::when($request->keyword, function ($q) use ($request) {
+            $q->where(function ($q) use ($request) {
+                $q->where('name', 'like', "%{$request->keyword}%")
+                    ->orWHere('address', 'like', "%{$request->keyword}%")
+                    ->orWHere('ip_address', 'like', "%{$request->keyword}%");
             });
         })->orderBy($request->sort_field ?: 'name', $request->sort_direction ?: 'asc');
 
@@ -32,45 +32,45 @@ class {{ class }} extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store({{model}}Request $request)
+    public function store(SiteRequest $request)
     {
-        $data = {{model}}::create($request->all());
+        $data = Site::create($request->all());
         return ['message' => 'Data has been saved'];
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
+     * @param  \App\Models\Site  $site
      * @return \Illuminate\Http\Response
      */
-    public function show({{ model }} ${{ modelVariable }})
+    public function show(Site $site)
     {
-        return ${{modelVariable}};
+        return $site;
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
+     * @param  \App\Models\Site  $site
      * @return \Illuminate\Http\Response
      */
-    public function update({{model}}Request $request, {{ model }} ${{ modelVariable }})
+    public function update(SiteRequest $request, Site $site)
     {
-        ${{modelVariable}}->update($request->all());
+        $site->update($request->all());
         return ['message' => 'Data has been saved'];
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
+     * @param  \App\Models\Site  $site
      * @return \Illuminate\Http\Response
      */
-    public function destroy({{ model }} ${{ modelVariable }})
+    public function destroy(Site $site)
     {
-        ${{modelVariable}}->delete();
+        $site->delete();
         return ['message' => 'Data has been deleted'];
     }
 }

@@ -72,12 +72,10 @@ class GenerateScript extends Command
             'WIDE4-Sayan2' => [
                 'email' => 'udibagas@wide.co.id',
                 'profiles' => [
-                    '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 8000, 'validity' => '1hari'],
+                    '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 7000, 'validity' => '1hari'],
                     '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 11000, 'validity' => '1hari'],
-                    '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '2hari'],
-                    '1jam-wan' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 7000, 'validity' => '1hari'],
-                    '2jam-wan' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 11000, 'validity' => '1hari'],
-                    '5jam-wan' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 19000, 'validity' => '2hari'],
+                    '3jam' => ['uptime' => '3h', 'price' => 20000, 'seller_price' => 15000, 'validity' => '1hari'],
+                    '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 19000, 'validity' => '2hari'],
                     '1bulan' => ['uptime' => '30d', 'price' => 350000, 'seller_price' => 300000, 'validity' => '30hari'],
                 ]
             ],
@@ -92,13 +90,15 @@ class GenerateScript extends Command
                 ]
             ],
 
-            'WIDE6-KM101' => [
+            'WIDE6-YOEL-SBN' => [
                 'email' => 'udibagas@wide.co.id',
                 'profiles' => [
-                    '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 6000, 'validity' => '1hari'],
-                    '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 10000, 'validity' => '1hari'],
-                    '3jam' => ['uptime' => '3h', 'price' => 20000, 'seller_price' => 13000, 'validity' => '1hari'],
+                    '1jam' => ['uptime' => '1h', 'price' => 8000, 'seller_price' => 6000, 'validity' => '1hari'],
+                    '2jam' => ['uptime' => '2h', 'price' => 12000, 'seller_price' => 10000, 'validity' => '1hari'],
+                    '3jam' => ['uptime' => '3h', 'price' => 17000, 'seller_price' => 14000, 'validity' => '1hari'],
                     '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '2hari'],
+                    '200mb' => ['uptime' => '12h', 'price' => 10000, 'seller_price' => 7000, 'validity' => '12jam'],
+                    '300mb' => ['uptime' => '1d', 'price' => 13000, 'seller_price' => 10000, 'validity' => '1hari'],
                 ]
             ],
 
@@ -119,8 +119,29 @@ class GenerateScript extends Command
                     '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 10000, 'validity' => '1hari'],
                     '3jam' => ['uptime' => '3h', 'price' => 20000, 'seller_price' => 13000, 'validity' => '1hari'],
                     '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '2hari'],
+                    '1bulan' => ['uptime' => '30d', 'price' => 350000, 'seller_price' => 300000, 'validity' => '30hari'],
                 ]
-            ]
+            ],
+            'WIDE9-BEROBAI' => [
+                'email' => 'udibagas@wide.co.id',
+                'profiles' => [
+                    '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 7000, 'validity' => '1hari'],
+                    '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 10000, 'validity' => '1hari'],
+                    '3jam' => ['uptime' => '3h', 'price' => 20000, 'seller_price' => 15000, 'validity' => '1hari'],
+                    '200mb' => ['uptime' => '12h', 'price' => 10000, 'seller_price' => 7000, 'validity' => '12jam'],
+                    '300mb' => ['uptime' => '1d', 'price' => 15000, 'seller_price' => 10000, 'validity' => '1hari'],
+                    '400mb' => ['uptime' => '1d', 'price' => 20000, 'seller_price' => 15000, 'validity' => '1hari'],
+                ]
+            ],
+            'WIDE10-KRUE' => [
+                'email' => 'udibagas@wide.co.id',
+                'profiles' => [
+                    '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 6000, 'validity' => '1hari'],
+                    '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 10000, 'validity' => '1hari'],
+                    '3jam' => ['uptime' => '3h', 'price' => 20000, 'seller_price' => 15000, 'validity' => '1hari'],
+                    '5jam' => ['uptime' => '3h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '1hari'],
+                ]
+            ],
         ];
 
         $comment    = 'vc-' . date('d.m.y.h.i.') . time();
