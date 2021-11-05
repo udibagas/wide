@@ -11,7 +11,7 @@ class GenerateScript extends Command
      *
      * @var string
      */
-    protected $signature = 'script:generate';
+    protected $signature = 'vc';
 
     /**
      * The console command description.
@@ -83,10 +83,14 @@ class GenerateScript extends Command
             'WIDE5-KM74' => [
                 'email' => 'almaapinoh@gmail.com',
                 'profiles' => [
-                    '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 8000, 'validity' => '1hari'],
-                    '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 12000, 'validity' => '1hari'],
-                    '3jam' => ['uptime' => '3h', 'price' => 20000, 'seller_price' => 15000, 'validity' => '1hari'],
-                    '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '2hari'],
+                    // '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 8000, 'validity' => '1hari'],
+                    // '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 12000, 'validity' => '1hari'],
+                    // '3jam' => ['uptime' => '3h', 'price' => 20000, 'seller_price' => 15000, 'validity' => '1hari'],
+                    // '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '2hari'],
+                    '1jam' => ['uptime' => '1h', 'price' => 5000, 'seller_price' => 3000, 'validity' => '1hari'],
+                    '2jam' => ['uptime' => '2h', 'price' => 8000, 'seller_price' => 6000, 'validity' => '1hari'],
+                    '3jam' => ['uptime' => '3h', 'price' => 10000, 'seller_price' => 8000, 'validity' => '1hari'],
+                    '5jam' => ['uptime' => '5h', 'price' => 15000, 'seller_price' => 13000, 'validity' => '2hari'],
                 ]
             ],
 
@@ -146,13 +150,17 @@ class GenerateScript extends Command
 
         $comment    = 'vc-' . date('d.m.y.h.i.') . time();
         $site       = $this->choice('Site', array_keys($sites));
-        $email      = $this->ask('Email', $sites[$site]['email']);
-        $dns        = $this->ask('DNS', 'wide.kalbar');
+        // $email      = $this->ask('Email', $sites[$site]['email']);
+        $email      = $sites[$site]['email'];
+        // $dns        = $this->ask('DNS', 'wide.kalbar');
+        $dns        = 'wide.kalbar';
         $profile    = $this->choice('Profile', array_keys($sites[$site]['profiles']));
         $uptime     = $sites[$site]['profiles'][$profile]['uptime'];
         $validity   = $sites[$site]['profiles'][$profile]['validity'];
-        $price      = $this->ask('Price', $sites[$site]['profiles'][$profile]['price']);
-        $seller_price = $this->ask('Seller Price', $sites[$site]['profiles'][$profile]['seller_price']);
+        // $price      = $this->ask('Price', $sites[$site]['profiles'][$profile]['price']);
+        $price      = $sites[$site]['profiles'][$profile]['price'];
+        // $seller_price = $this->ask('Seller Price', $sites[$site]['profiles'][$profile]['seller_price']);
+        $seller_price = $sites[$site]['profiles'][$profile]['seller_price'];
         $total      = $this->ask('Total', 0);
         $qty        = 50;
 
