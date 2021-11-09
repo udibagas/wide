@@ -41,11 +41,16 @@ class GenerateScript extends Command
             'WIDE1-Pintas' => [
                 'email' => 'udibagas@wide.co.id',
                 'profiles' => [
-                    '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 7000, 'validity' => '1hari'],
-                    '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 12000, 'validity' => '1hari'],
+                    // '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 7000, 'validity' => '1hari'],
+                    // '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 12000, 'validity' => '1hari'],
                     // '3jam' => ['uptime' => '3h', 'price' => 20000, 'seller_price' => 15000, 'validity' => '1hari'],
-                    '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '2hari'],
-                    '1bulan' => ['uptime' => '30d', 'price' => 350000, 'seller_price' => 300000, 'validity' => '30hari'],
+                    // '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '2hari'],
+                    // '1bulan' => ['uptime' => '30d', 'price' => 350000, 'seller_price' => 300000, 'validity' => '30hari'],
+                    '1jam' => ['uptime' => '1h', 'price' => 5000, 'seller_price' => 3000, 'validity' => '1hari'],
+                    '2jam' => ['uptime' => '2h', 'price' => 8000, 'seller_price' => 6000, 'validity' => '1hari'],
+                    '3jam' => ['uptime' => '3h', 'price' => 10000, 'seller_price' => 8000, 'validity' => '1hari'],
+                    '5jam' => ['uptime' => '5h', 'price' => 15000, 'seller_price' => 13000, 'validity' => '2hari'],
+                    '1bulan' => ['uptime' => '30d', 'price' => 250000, 'seller_price' => 200000, 'validity' => '30hari'],
                 ]
             ],
 
@@ -109,11 +114,15 @@ class GenerateScript extends Command
             'WIDE7-BinaKarya' => [
                 'email' => 'udibagas@wide.co.id',
                 'profiles' => [
-                    '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 7000, 'validity' => '1hari'],
-                    '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 11000, 'validity' => '1hari'],
-                    '3jam' => ['uptime' => '3h', 'price' => 20000, 'seller_price' => 16000, 'validity' => '1hari'],
-                    '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '2hari'],
-                    '1bulan' => ['uptime' => '30d', 'price' => 350000, 'seller_price' => 30000, 'validity' => '30hari'],
+                    // '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 7000, 'validity' => '1hari'],
+                    // '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 11000, 'validity' => '1hari'],
+                    // '3jam' => ['uptime' => '3h', 'price' => 20000, 'seller_price' => 16000, 'validity' => '1hari'],
+                    // '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '2hari'],
+                    '1jam' => ['uptime' => '1h', 'price' => 5000, 'seller_price' => 3000, 'validity' => '1hari'],
+                    '2jam' => ['uptime' => '2h', 'price' => 8000, 'seller_price' => 6000, 'validity' => '1hari'],
+                    '3jam' => ['uptime' => '3h', 'price' => 10000, 'seller_price' => 8000, 'validity' => '1hari'],
+                    '5jam' => ['uptime' => '5h', 'price' => 15000, 'seller_price' => 13000, 'validity' => '2hari'],
+                    '1bulan' => ['uptime' => '30d', 'price' => 250000, 'seller_price' => 200000, 'validity' => '30hari'],
                 ]
             ],
             'WIDE8-KM69' => [
