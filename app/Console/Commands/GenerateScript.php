@@ -67,10 +67,14 @@ class GenerateScript extends Command
             'MajuJayaCoffe' => [
                 'email' => 'udibagas@wide.co.id',
                 'profiles' => [
-                    '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 8000, 'validity' => '1hari'],
-                    '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 12000, 'validity' => '1hari'],
+                    // '1jam' => ['uptime' => '1h', 'price' => 10000, 'seller_price' => 8000, 'validity' => '1hari'],
+                    // '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 12000, 'validity' => '1hari'],
                     // '3jam' => ['uptime' => '3h', 'price' => 20000, 'seller_price' => 15000, 'validity' => '1hari'],
-                    '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '2hari'],
+                    // '5jam' => ['uptime' => '5h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '2hari'],
+                    '1jam' => ['uptime' => '1h', 'price' => 8000, 'seller_price' => 6000, 'validity' => '1hari'],
+                    '2jam' => ['uptime' => '2h', 'price' => 13000, 'seller_price' => 10000, 'validity' => '1hari'],
+                    '3jam' => ['uptime' => '3h', 'price' => 18000, 'seller_price' => 13000, 'validity' => '1hari'],
+                    '5jam' => ['uptime' => '5h', 'price' => 23000, 'seller_price' => 18000, 'validity' => '2hari'],
                 ]
             ],
 
@@ -153,6 +157,7 @@ class GenerateScript extends Command
                     '2jam' => ['uptime' => '2h', 'price' => 15000, 'seller_price' => 10000, 'validity' => '1hari'],
                     '3jam' => ['uptime' => '3h', 'price' => 20000, 'seller_price' => 15000, 'validity' => '1hari'],
                     '5jam' => ['uptime' => '3h', 'price' => 25000, 'seller_price' => 20000, 'validity' => '1hari'],
+                    '1bulan' => ['uptime' => '30d', 'price' => 350000, 'seller_price' => 300000, 'validity' => '30hari'],
                 ]
             ],
         ];
