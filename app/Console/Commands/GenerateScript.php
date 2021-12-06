@@ -170,6 +170,16 @@ class GenerateScript extends Command
                     '1bulan' => ['uptime' => '30d', 'price' => 350000, 'seller_price' => 300000, 'validity' => '30hari'],
                 ]
             ],
+            'WIDE11-SEPONDAM' => [
+                'email' => 'udibagas@wide.co.id',
+                'profiles' => [
+                    '1jam' => ['uptime' => '1h', 'price' => 7000, 'seller_price' => 6000, 'validity' => '1hari'],
+                    '2jam' => ['uptime' => '2h', 'price' => 10000, 'seller_price' => 8000, 'validity' => '1hari'],
+                    '3jam' => ['uptime' => '3h', 'price' => 12000, 'seller_price' => 10000, 'validity' => '1hari'],
+                    '5jam' => ['uptime' => '3h', 'price' => 17000, 'seller_price' => 15000, 'validity' => '1hari'],
+                    // '1bulan' => ['uptime' => '30d', 'price' => 350000, 'seller_price' => 300000, 'validity' => '30hari'],
+                ]
+            ],
         ];
 
         $comment    = 'vc-' . date('d.m.y.h.i.') . time();
